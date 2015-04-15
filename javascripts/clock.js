@@ -184,14 +184,14 @@ $(function() {
 	    var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
     	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
 		$("#n0").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
-		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10):parseIn((day).toString().substring((1,2),10));
-    	$("#n2").digitalPrev(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
-	    $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
-	    $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
-    	$("#n5").digitalPrev(minute<10?0:parseInt((minute).toString().substring(0,1),10));
-	    $("#n6").digitalPrev(minute<10?parseInt((minute).toString().substring(0,1),10):parseInt((minute).toString().substring(1,2),10));
-    	$("#n7").digitalPrev(second<10?0:parseInt((second).toString().substring(0,1),10));
-	    $("#n8").digitalPrev(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
+		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10):parseIn((day).toString().substring(1,2),10));
+    	        $("#n2").digitalPrev(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
+	        $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
+	        $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
+    	        $("#n5").digitalPrev(minute<10?0:parseInt((minute).toString().substring(0,1),10));
+	        $("#n6").digitalPrev(minute<10?parseInt((minute).toString().substring(0,1),10):parseInt((minute).toString().substring(1,2),10));
+    	        $("#n7").digitalPrev(second<10?0:parseInt((second).toString().substring(0,1),10));
+	        $("#n8").digitalPrev(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
 		} else {
 			$("#n0").digitalPrev(0);
 			$("#n1").digitalPrev(0);
