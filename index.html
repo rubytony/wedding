@@ -13,9 +13,9 @@
     <script src="javascripts/clock.js"></script>
     <script src="javascripts/taffy.js"></script>
     <script>
-	var cities = TAFFY();
-	var Visitor = TAFFY([{name:"李易哲",check:"Yes"},{name:"李筱茹",check:"No"}]);
-	alert(Visitor({check:"Yes"}).name());
+	var visitor = TAFFY([{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}]);
+	var human = visitor({check:"YES"}).name();
+	alert(human);
     </script>
 <!--    <script src="javascripts/jquery.twzipcode.js"></script>
     <script src="javascripts/jquery.twzipcode.min.js"></script>
