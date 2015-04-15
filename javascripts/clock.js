@@ -159,7 +159,7 @@ $(function() {
 	
 	
 	var sid=null;
-	var tar = new Date(2015,8,13,12,30,0).getTime();
+	var tar = new Date(2015,9,13,12,30,0).getTime();
 	var now = new Date().getTime();
 	var sec = (tar-now)/1000;
 	var day = parseInt(sec/86400,10);
@@ -183,8 +183,9 @@ $(function() {
     	var hour = parseInt((sec-(day*86400))/3600,10);
 	    var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
     	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
-		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
-    	$("#n2").digitalPrev(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
+		$("#n0").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
+		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(1,2),10));
+    	$("#n2").digitalPrev(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(2,3),10));
 	    $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
 	    $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
     	$("#n5").digitalPrev(minute<10?0:parseInt((minute).toString().substring(0,1),10));
@@ -192,6 +193,7 @@ $(function() {
     	$("#n7").digitalPrev(second<10?0:parseInt((second).toString().substring(0,1),10));
 	    $("#n8").digitalPrev(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
 		} else {
+			$("#n0").digitalPrev(0);
 			$("#n1").digitalPrev(0);
 			$("#n2").digitalPrev(0);
 			$("#n3").digitalPrev(0);
