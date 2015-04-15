@@ -168,7 +168,7 @@ $(function() {
 	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
 	//var str = day + "天" + hour  + "時" + minute + "分" + second + "秒";
 	$("#n0").digitalInit(day<10?0:parseInt((day).toString().substring(0,1),10));
-	$("#n1").digitalInit(day<10?0:parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
+	$("#n1").digitalInit(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
     	$("#n2").digitalInit(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
 	$("#n3").digitalInit(hour<10?0:parseInt((hour).toString().substring(0,1),10));
 	$("#n4").digitalInit(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
@@ -185,7 +185,7 @@ $(function() {
 	    var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
     	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
 		$("#n0").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
-		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10):parseIn((day).toString().substring(1,2),10));
+		$("#n1").digitalPrev(day<10?parseInt((day).toString().substring(0,1),10):parseIn((day).toString().substring(1,2),10));
     	        $("#n2").digitalPrev(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
 	        $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
 	        $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
