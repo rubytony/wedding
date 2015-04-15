@@ -13,10 +13,11 @@
     <script src="javascripts/clock.js"></script>
     <script src="javascripts/taffy.js"></script>
     <script>
-	var visitor = TAFFY([{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}]);
+	/* var visitor = TAFFY([{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}]);
 	visitor.insert({name:"林及仁",check:"Maybe"});
-	visitor().limit(2).each(function (r) {alert(r.name)});
-	var my_db = new taffy('humandb',{autocommit:true},visitor);
+	visitor().limit(2).each(function (r) {alert(r.name)});*/
+	var visitor = [{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}];
+	var my_db = new TAFFY('humandb',{autocommit:true},visitor);
 	my_db.save();
     </script>
 <!--    <script src="javascripts/jquery.twzipcode.js"></script>
