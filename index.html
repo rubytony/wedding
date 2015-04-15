@@ -13,9 +13,8 @@
     <script src="javascripts/clock.js"></script>
     <script src="javascripts/taffy.js"></script>
     <script>
-	var visitor = [{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}];
-	var my_db = TAFFY('humandb',{autocommit:true},visitor);
-	my_db.store();
+	var visitor = TAFFY[{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}];
+	visitor.store();
     </script>
 <!--    <script src="javascripts/jquery.twzipcode.js"></script>
     <script src="javascripts/jquery.twzipcode.min.js"></script>
