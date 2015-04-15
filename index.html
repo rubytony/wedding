@@ -15,7 +15,7 @@
     <script>
 	var visitor = TAFFY([{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}]);
 	visitor.insert({name:"林及仁",check:"Maybe"});
-	visitor.limit(2).each(function (r) {alert(r.name)});
+	visitor().limit(2).each(function (r) {alert(r.name)});
     </script>
 <!--    <script src="javascripts/jquery.twzipcode.js"></script>
     <script src="javascripts/jquery.twzipcode.min.js"></script>
