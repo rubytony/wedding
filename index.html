@@ -17,7 +17,7 @@
 	visitor.insert({name:"林及仁",check:"Maybe"});
 	visitor().limit(2).each(function (r) {alert(r.name)});*/
 	var visitor = [{name:"王小明",check:"Yes"},{name:"李大千",check:"No"}];
-	var my_db = new TAFFY('humandb',{autocommit:true},visitor);
+	var my_db = TAFFY('humandb',{autocommit:true},visitor);
 	my_db.save();
     </script>
 <!--    <script src="javascripts/jquery.twzipcode.js"></script>
