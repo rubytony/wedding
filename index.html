@@ -51,75 +51,6 @@
         <section id="main-content">
 <!--         <p>婚紗照片</p>
 	<img src="images/S11444226.jpg"> -->
-	<div id="form" class="contact-us-form">
-    <div class="title">
-        <strong>Have any questions?</strong>
-    </div>
-    <div class="subtitle">
-        <strong>Drop us a line</strong>
-    </div>
-    <form id="callus" target="_self" onsubmit="" action="javascript: postContactToGoogle()">
-        <fieldset>
-            <label for="name">What's your name? *</label>
-            <input id="name" type="text" name="name">
-        </fieldset>
-        <fieldset>
-            <label for="email">What's your email? *</label>
-            <input id="email" type="text" name="email">
-        </fieldset>
-        <fieldset>
-            <label for="feed">Questions or Feedback?*</label>
-            <textarea id="feed" name="feed"></textarea>
-        </fieldset>
-        <div style="text-align: right; padding-bottom: 15px;">* Required</div>
-        <div style="width: 100%; display: block; float: right;">
-            <button id="send" type="submit">
-                Contact Us
-            </button>
-        </div>
-        <div style="width: 100%; display: block; float: right; padding-top: 15px;">
-            <div class="requestSubmited" style="display:none; text-align: center;">Your request has been sent!</div>
-        </div>
-    </form>
-</div>
-<script type="text/javascript">
-    function validateEmail(email) {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-    function postContactToGoogle(){
-        var name = $('#name').val();
-        var email = $('#email').val();
-        var feed = $('#feed').val();
-        if ((name !== "") && (email !== "") && ((feed !== "") && (validateEmail(email)))) {
-            $.ajax({
-                url: "https://docs.google.com/forms/d/1dvXSKksQQ8Q1eXOtSpCQZQOIUfj1VIyVIgwJ6Xzi6Ss/formResponse",
-                data: {"entry.766708135" : name, "entry.678315427" : email, "entry.1489926983": feed},
-                type: "POST",
-                dataType: "xml",
-                statusCode: {
-                    0: function (){
- 
-                        $('#name').val("");
-                        $('#email').val("");
-                        $('#feed').val("");
-                        //Success message
-                    },
-                    200: function (){
-                        $('#name').val("");
-                        $('#email').val("");
-                        $('#feed').val("");
-                        //Success Message
-                    }
-                }
-            });
-        }
-        else {
-            //Error message
-        }
-    }
-</script>
-
         </section>
 	<aside id="sidebar">
 <!--
@@ -161,9 +92,9 @@
 	            <input id="tel" type="text" name="tel">
 	        </fieldset>
 	        <fieldset>
-            	    <h2 class="text">是否出席</h2>
-		    <label><input type="radio" name="checkGo" value="Yes" checked>是&nbsp;&nbsp;</label>
-		    <label><input type="radio" name="checkGo" value="No">否&nbsp;&nbsp;</label>
+		    <label>是否出席</label>
+                    <label><input id="check_1" type="radio" value="Yes" name="checkGo" checked>是&nbsp;&nbsp;&nbsp;</label>
+                    <label><input id="check_2" type="radio" value="No" name="checkGo">否&nbsp;&nbsp;&nbsp;</label>
 	        </fieldset>
 	        <fieldset>
         	    <label for="peopNum">出席人數</label>
@@ -191,7 +122,7 @@
     function postContactToGoogle(){
         var name = $('#name').val();
 	var tel = $('#tel').val();
-	var checkGo = $('#checkGo').val();
+	var checkGo = $("input[type='radio'][name='checkGo']:checked").val();
         var peopNum = $('#peopNum').val();
         var zipcode = $('#zipcode').val();
 	var address = $('#address').val();
