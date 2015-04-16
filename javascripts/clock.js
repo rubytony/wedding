@@ -113,6 +113,7 @@ function getDig(date) {
   var hours = (date.getHours() < 10 ? "0":"") + date.getHours().toString();
   var dig1 = parseInt(hours.substring(0,1),10);
   var dig2 = parseInt(hours.substring(1,2),10);
+  var dig2 = parseInt(hours.substring(2,3),10);
   var dig4 = parseInt(minutes.substring(0,1),10);
   var dig5 = parseInt(minutes.substring(1,2),10);
   var dig7 = parseInt(seconds.substring(0,1),10);
