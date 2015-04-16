@@ -20,6 +20,13 @@
     <title>Tony & Ruby 的幸福時刻</title>
   </head>
 
+  <script type="text/javascript">
+	function uncheck() {
+	    $('input[name="peopNum"]').val("0");
+	}
+
+  </script>
+
   <body>
     <header>
       <div class="inner"> 
@@ -57,6 +64,7 @@
 	    <div class="title">
        		 <strong>請留下保貴的訊息</strong>
 	    </div>
+
 	    <form id="callus" target="_self" onsubmit="" action="javascript: postContactToGoogle()">
         	    <h2 class=text>姓名*</h2>
 	            <input id="name" type="text" name="name">
@@ -64,7 +72,7 @@
 	            <input id="tel" type="text" name="tel">
 		    <h2 class=text>是否出席</h2>
                     <label><input id="checkGo_1" type="radio" value="Yes" name="checkGo" checked>是&nbsp;&nbsp;&nbsp;</label>
-                    <label><input id="checkGo_2" type="radio" value="No" name="checkGo">否&nbsp;&nbsp;&nbsp;</label>
+                    <label><input id="checkGo_2" type="radio" value="No" name="checkGo" onclick="uncheck()">否&nbsp;&nbsp;&nbsp;</label>
         	    <h2 class=text>出席人數</h2>
 	            <input id="peopNum" type="text" name="peopNum">
         	    <h2 class=text>郵遞區號</h2>
@@ -76,11 +84,6 @@
                 	送出
         	    </button>
 	        </div>
-<!--
-            <div style="width: 100%; display: block; float: right; padding-top: 15px;">
-                <div class="requestSubmited" style="display:none; text-align: center;">感謝您的協助</div>
-            </div>
--->
     	    </form>
 	</div>
 
