@@ -105,8 +105,8 @@
     }
   };
 })(jQuery);
- 
- 
+
+
 function getDig(date) {
   var seconds = (date.getSeconds() < 10 ? "0":"") + date.getSeconds().toString();
   var minutes = (date.getMinutes() < 10 ? "0":"") + date.getMinutes().toString();
@@ -119,102 +119,101 @@ function getDig(date) {
   var dig8 = parseInt(seconds.substring(1,2),10);
   return {dig1:dig1,dig2:dig2,dig4:dig4,dig5:dig5,dig7:dig7,dig8:dig8};
 }
- 
- 
+
+
 $(function() {
-    /*
- *     $("#y0").digitalInit(2);
- *          
- *               
- *                        
- *                             
- *                                  
- *                                       
- *                                         var begin=new Date();
- *                                           var dig=getDig(begin);
- *                                             $("#n1").digitalInit(dig.dig1);
- *                                               $("#n2").digitalInit(dig.dig2);
- *                                                 $("#n3").digitalInit(":");
- *                                                   $("#n4").digitalInit(dig.dig4);  
- *                                                     $("#n5").digitalInit(dig.dig5);
- *                                                       $("#n6").digitalInit(":");
- *                                                         $("#n7").digitalInit(dig.dig7);  
- *                                                           $("#n8").digitalInit(dig.dig8);
- *                                                              
- *                                                                var add=0;
- *                                                                  setTimeout(function() {
- *                                                                      var now=new Date(begin.getTime()+add);
- *                                                                          var dig=getDig(now);
- *                                                                              $("#n1").digitalPrev(dig.dig1);
- *                                                                                  $("#n2").digitalPrev(dig.dig2);
- *                                                                                      $("#n4").digitalPrev(dig.dig4);
- *                                                                                          $("#n5").digitalPrev(dig.dig5);
- *                                                                                              $("#n8").digitalPrev(dig.dig8);
- *                                                                                                  $("#n7").digitalPrev(dig.dig7);
- *                                                                                                      add-=1000;    
- *                                                                                                          setTimeout(arguments.callee,1000);
- *                                                                                                            },0);
- *                                                                                                              */
-     
-     
-     
-    var sid=null;
-    var tar = new Date(2015,9,13,12,00,0).getTime();
-    var now = new Date().getTime();
-    var sec = (tar-now)/1000;
-    var day = parseInt(sec/86400,10);
-    var hour = parseInt((sec-(day*86400))/3600,10);
-    var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
-    var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
-    //var str = day + "天" + hour  + "時" + minute + "分" + second + "秒";
-    //    $("#n1").digitalInit(day<10?0:parseInt((day).toString().substring(0,1),10));
-    //        $("#n2").digitalInit(day<10?0:parseInt((day).toString().substring(0,1),10));
-    //            $("#n9").digitalInit(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
-    //                $("#n3").digitalInit(hour<10?0:parseInt((hour).toString().substring(0,1),10));
-    //                    $("#n4").digitalInit(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
-    //                        $("#n5").digitalInit(minute<10?0:parseInt((minute).toString().substring(0,1),10));
-    //                            $("#n6").digitalInit(minute<10?parseInt((minute).toString().substring(0,1),10):parseInt((minute).toString().substring(1,2),10));
-    //                                $("#n7").digitalInit(second<10?0:parseInt((second).toString().substring(0,1),10));
-    //                                    $("#n8").digitalInit(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
-    //                                        function run() {
-    //                                                var now = new Date().getTime();
-    //                                                        var sec = (tar-now)/1000;
-    //                                                                if (sec>0) {
-    //                                                                        var day = parseInt(sec/86400,10);
-    //                                                                                var hour = parseInt((sec-(day*86400))/3600,10);
-    //                                                                                        var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
-    //                                                                                                var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
-    //                                                                                                        $("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
-    //                                                                                                                $("#n2").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
-    //                                                                                                                        $("#n9").digitalPrev(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
-    //                                                                                                                                $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
-    //                                                                                                                                        $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
-    //                                                                                                                                                $("#n5").digitalPrev(minute<10?0:parseInt((minute).toString().substring(0,1),10));
-    //                                                                                                                                                        $("#n6").digitalPrev(minute<10?parseInt((minute).toString().substring(0,1),10):parseInt((minute).toString().substring(1,2),10));
-    //                                                                                                                                                                $("#n7").digitalPrev(second<10?0:parseInt((second).toString().substring(0,1),10));
-    //                                                                                                                                                                        $("#n8").digitalPrev(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
-    //                                                                                                                                                                                } else {
-    //                                                                                                                                                                                            $("#n1").digitalPrev(0);
-    //                                                                                                                                                                                                        $("#n2").digitalPrev(0);
-    //                                                                                                                                                                                                                    $("#n9").digitalPrev(0);
-    //                                                                                                                                                                                                                                $("#n3").digitalPrev(0);
-    //                                                                                                                                                                                                                                            $("#n4").digitalPrev(0);
-    //                                                                                                                                                                                                                                                        $("#n5").digitalPrev(0);
-    //                                                                                                                                                                                                                                                                    $("#n6").digitalPrev(0);
-    //                                                                                                                                                                                                                                                                                $("#n7").digitalPrev(0);
-    //                                                                                                                                                                                                                                                                                            $("#n8").digitalPrev(0);
-    //                                                                                                                                                                                                                                                                                                         
-    //                                                                                                                                                                                                                                                                                                                     clearInterval(sid);
-    //                                                                                                                                                                                                                                                                                                                             }
-    //                                                                                                                                                                                                                                                                                                                                 }
-    //                                                                                                                                                                                                                                                                                                                                     var sid =setInterval(run,1000);
-    //                                                                                                                                                                                                                                                                                                                                          
-    //                                                                                                                                                                                                                                                                                                                                               
-    //                                                                                                                                                                                                                                                                                                                                                    
-    //                                                                                                                                                                                                                                                                                                                                                        //$("body").append(str);
-    //                                                                                                                                                                                                                                                                                                                                                             
-    //                                                                                                                                                                                                                                                                                                                                                                  
-    //                                                                                                                                                                                                                                                                                                                                                                       
-    //                                                                                                                                                                                                                                                                                                                                                                            
-    //                                                                                                                                                                                                                                                                                                                                                                                 
-    //                                                                                                                                                                                                                                                                                                                                                                                 });
+	/*
+	$("#y0").digitalInit(2);
+	
+	
+		
+	
+	
+	
+  var begin=new Date();
+  var dig=getDig(begin);
+  $("#n1").digitalInit(dig.dig1);
+  $("#n2").digitalInit(dig.dig2);
+  $("#n3").digitalInit(":");
+  $("#n4").digitalInit(dig.dig4);  
+  $("#n5").digitalInit(dig.dig5);
+  $("#n6").digitalInit(":");
+  $("#n7").digitalInit(dig.dig7);  
+  $("#n8").digitalInit(dig.dig8);
+  
+  var add=0;
+  setTimeout(function() {
+    var now=new Date(begin.getTime()+add);
+    var dig=getDig(now);
+    $("#n1").digitalPrev(dig.dig1);
+    $("#n2").digitalPrev(dig.dig2);
+    $("#n4").digitalPrev(dig.dig4);
+    $("#n5").digitalPrev(dig.dig5);
+    $("#n8").digitalPrev(dig.dig8);
+    $("#n7").digitalPrev(dig.dig7);
+    add-=1000;    
+    setTimeout(arguments.callee,1000);
+  },0);
+  */
+	
+	
+	
+	var sid=null;
+	var tar = new Date(2015,9,13,12,30,0).getTime();
+	var now = new Date().getTime();
+	var sec = (tar-now)/1000;
+	var day = parseInt(sec/86400,10);
+	var hour = parseInt((sec-(day*86400))/3600,10);
+	var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
+	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
+	//var str = day + "天" + hour  + "時" + minute + "分" + second + "秒";
+	$("#n0").digitalInit(day<100?0:parseInt((day).toString().substring(0,1),10));
+	$("#n1").digitalInit(day<10?0:parseInt((day).toString().substring(1,2),10));
+    	$("#n2").digitalInit(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
+	$("#n3").digitalInit(hour<10?0:parseInt((hour).toString().substring(0,1),10));
+	$("#n4").digitalInit(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
+	$("#n5").digitalInit(minute<10?0:parseInt((minute).toString().substring(0,1),10));
+	$("#n6").digitalInit(minute<10?parseInt((minute).toString().substring(0,1),10):parseInt((minute).toString().substring(1,2),10));
+	$("#n7").digitalInit(second<10?0:parseInt((second).toString().substring(0,1),10));
+	$("#n8").digitalInit(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
+	function run() {
+		var now = new Date().getTime();
+		var sec = (tar-now)/1000;
+		if (sec>0) {
+			var day = parseInt(sec/86400,10);
+			var hour = parseInt((sec-(day*86400))/3600,10);
+			var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
+			var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
+		$("#n0").digitalPrev(day<100?0:parseInt((day).toString().substring(0,1),10));
+		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(1,2),10));
+    	        $("#n2").digitalPrev(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
+	        $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
+	        $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
+    	        $("#n5").digitalPrev(minute<10?0:parseInt((minute).toString().substring(0,1),10));
+	        $("#n6").digitalPrev(minute<10?parseInt((minute).toString().substring(0,1),10):parseInt((minute).toString().substring(1,2),10));
+    	        $("#n7").digitalPrev(second<10?0:parseInt((second).toString().substring(0,1),10));
+	        $("#n8").digitalPrev(second<10?parseInt((second).toString().substring(0,1),10):parseInt((second).toString().substring(1,2),10));
+		} else {
+			$("#n0").digitalPrev(0);
+			$("#n1").digitalPrev(0);
+			$("#n2").digitalPrev(0);
+			$("#n3").digitalPrev(0);
+			$("#n4").digitalPrev(0);
+			$("#n5").digitalPrev(0);
+			$("#n6").digitalPrev(0);
+			$("#n7").digitalPrev(0);
+			$("#n8").digitalPrev(0);
+			clearInterval(sid);
+		}
+	}
+	var sid =setInterval(run,1000);
+	
+	
+	
+	//$("body").append(str);
+	
+	
+	
+	
+	
+});
