@@ -24,6 +24,9 @@
 	function uncheck() {
 	    $('input[name="peopNum"]').val("0");
 	}
+	function check() {
+	    $('input[name="peopNum"]').val("1");
+	}
 
   </script>
 
@@ -71,7 +74,7 @@
 	            <h2 class=text>電話</h2>
 	            <input id="tel" type="text" name="tel">
 		    <h2 class=text>是否出席</h2>
-                    <label><input id="checkGo_1" type="radio" value="Yes" name="checkGo" checked>是&nbsp;&nbsp;&nbsp;</label>
+                    <label><input id="checkGo_1" type="radio" value="Yes" name="checkGo" checked onclick="check()">是&nbsp;&nbsp;&nbsp;</label>
                     <label><input id="checkGo_2" type="radio" value="No" name="checkGo" onclick="uncheck()">否&nbsp;&nbsp;&nbsp;</label>
         	    <h2 class=text>出席人數</h2>
 	            <input id="peopNum" type="text" name="peopNum" value="1">
