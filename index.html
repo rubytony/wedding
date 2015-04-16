@@ -25,7 +25,43 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+<script type="text/javascript">
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }"
+    function postContactToGoogle(){
+        var name = $j('#name').val();
+        var email = $j('#email').val();
+        var feed = $j('#feed').val();
+        if ((name !== "") && (email !== "") && ((feed !== "") && (validateEmail(email)))) {
+            $j.ajax({
+                url: "https://docs.google.com/forms/d/1dvXSKksQQ8Q1eXOtSpCQZQOIUfj1VIyVIgwJ6Xzi6Ss/formResponse",
+                data: {"entry.766708135" : name, "entry.678315427" : email, "entry.1489926983": feed},
+                type: "POST",
+                dataType: "xml",
+                statusCode: {
+                    0: function (){
+ 
+                        $j('#name').val("");
+                        $j('#email').val("");
+                        $j('#feed').val("");
+                        //Success message
+                    },
+                    200: function (){
+                        $j('#name').val("");
+                        $j('#email').val("");
+                        $j('#feed').val("");
+                        //Success Message
+                    }
+                }
+            });
+        }
+        else {
+            //Error message
+        }
+    }
+</script>
     <title>Tony & Ruby 的幸福時刻</title>
   </head>
 
