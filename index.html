@@ -96,11 +96,11 @@
         return re.test(email);
     }
     function postContactToGoogle(){
-        var name = $j('#name').val();
-        var email = $j('#email').val();
-        var feed = $j('#feed').val();
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var feed = $('#feed').val();
         if ((name !== "") && (email !== "") && ((feed !== "") && (validateEmail(email)))) {
-            $j.ajax({
+            $.ajax({
                 url: "https://docs.google.com/forms/d/1dvXSKksQQ8Q1eXOtSpCQZQOIUfj1VIyVIgwJ6Xzi6Ss/formResponse",
                 data: {"entry.766708135" : name, "entry.678315427" : email, "entry.1489926983": feed},
                 type: "POST",
@@ -108,15 +108,15 @@
                 statusCode: {
                     0: function (){
  
-                        $j('#name').val("");
-                        $j('#email').val("");
-                        $j('#feed').val("");
+                        $('#name').val("");
+                        $('#email').val("");
+                        $('#feed').val("");
                         //Success message
                     },
                     200: function (){
-                        $j('#name').val("");
-                        $j('#email').val("");
-                        $j('#feed').val("");
+                        $('#name').val("");
+                        $('#email').val("");
+                        $('#feed').val("");
                         //Success Message
                     }
                 }
