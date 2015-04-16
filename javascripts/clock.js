@@ -113,12 +113,11 @@ function getDig(date) {
   var hours = (date.getHours() < 10 ? "0":"") + date.getHours().toString();
   var dig1 = parseInt(hours.substring(0,1),10);
   var dig2 = parseInt(hours.substring(1,2),10);
-  var dig3 = parseInt(hours.substring(2,3),10);
   var dig4 = parseInt(minutes.substring(0,1),10);
   var dig5 = parseInt(minutes.substring(1,2),10);
   var dig7 = parseInt(seconds.substring(0,1),10);
   var dig8 = parseInt(seconds.substring(1,2),10);
-  return {dig1:dig1,dig2:dig2,dig3:dig3,dig4:dig4,dig5:dig5,dig7:dig7,dig8:dig8};
+  return {dig1:dig1,dig2:dig2,dig4:dig4,dig5:dig5,dig7:dig7,dig8:dig8};
 }
 
 
@@ -168,8 +167,8 @@ $(function() {
 	var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
 	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
 	//var str = day + "天" + hour  + "時" + minute + "分" + second + "秒";
-	$("#n0").digitalInit(day<10?0:parseInt((day).toString().substring(0,1),10));
-	$("#n1").digitalInit(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
+	$("#n0").digitalInit(day<100?0:parseInt((day).toString().substring(0,1),10));
+	$("#n1").digitalInit(day<10?0:parseInt((day).toString().substring(1,2),10));
     	$("#n2").digitalInit(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
 	$("#n3").digitalInit(hour<10?0:parseInt((hour).toString().substring(0,1),10));
 	$("#n4").digitalInit(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
@@ -185,8 +184,8 @@ $(function() {
     	var hour = parseInt((sec-(day*86400))/3600,10);
 	    var minute = parseInt((sec-(day*86400)-(hour*3600))/60,10);
     	var second = parseInt(sec-(day*86400)-(hour*3600)-(minute*60),10);
-		$("#n0").digitalPrev(day<10?0:parseInt((day).toString().substring(0,1),10));
-		$("#n1").digitalPrev(day<10?parseInt((day).toString().substring(0,1),10):parseInt((day).toString().substring(1,2),10));
+		$("#n0").digitalPrev(day<100?0:parseInt((day).toString().substring(0,1),10));
+		$("#n1").digitalPrev(day<10?0:parseInt((day).toString().substring(1,2),10));
     	        $("#n2").digitalPrev(day<10?parseInt((day).toString().substring(1,2),10):parseInt((day).toString().substring(2,3),10));
 	        $("#n3").digitalPrev(hour<10?0:parseInt((hour).toString().substring(0,1),10));
 	        $("#n4").digitalPrev(hour<10?parseInt((hour).toString().substring(0,1),10):parseInt((hour).toString().substring(1,2),10));
