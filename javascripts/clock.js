@@ -159,7 +159,7 @@ $(function() {
 	
 	
 	var sid=null;
-	var tar = new Date(2015,9,13,12,30,0).getTime();
+	var tar = new Date(2015,9,13,12,0,0).getTime();
 	var now = new Date().getTime();
 	var sec = (tar-now)/1000;
 	var day = parseInt(sec/86400,10);
