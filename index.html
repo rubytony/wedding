@@ -92,7 +92,81 @@
 	<iframe width="600" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1807.2124910270543!2d121.52328691723618!3d25.05358108768925!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x6e3f6d2374968eaa!2z5Y-w5YyX5pm26I-v6YWS5bqXUmVnZW50IFRhaXBlaQ!5e0!3m2!1szh-TW!2stw!4v1429176958918"></iframe>
 		<div style="height:100px;"></div>
 	</div>
+
+	<div id="form" class="contact-us-form">
+	    <div class="title">
+       		 <strong>請留下寶貴的訊息</strong>
+	    </div>
+
+	    <form id="callus" target="_self" onsubmit="" action="javascript: postContactToGoogle()">
+        	    <h2 class=text>姓名*</h2>
+	            <input id="name" type="text" name="name">
+	            <h2 class=text>電話</h2>
+	            <input id="tel" type="text" name="tel">
+		    <h2 class=text>是否出席</h2>
+                    <label><input id="checkGo_1" type="radio" value="Yes" name="checkGo" checked onclick="check()">是&nbsp;&nbsp;&nbsp;</label>
+                    <label><input id="checkGo_2" type="radio" value="No" name="checkGo" onclick="uncheck()">否&nbsp;&nbsp;&nbsp;</label>
+        	    <h2 class=text>出席人數</h2>
+	            <input id="peopNum" type="text" name="peopNum" value="1">
+        	    <h2 class=text>郵遞區號</h2>
+	            <input id="zipcode" type="text" name="zipcode">
+        	    <h2 class=text>喜帖寄送地址</h2>
+	            <input id="address" type="text" name="address">
+	        <div style="width: 100%; display: block; float: right;">
+        	    <button id="send" type="submit">
+                	送出
+        	    </button>
+	        </div>
+    	    </form>
+	</div>
+
+	<script type="text/javascript">
+    		function postContactToGoogle(){
+		        var name = $('#name').val();
+			var tel = $('#tel').val();
+			var checkGo = $("input[type='radio'][name='checkGo']:checked").val();
+		        var peopNum = $('#peopNum').val();
+		        var zipcode = $('#zipcode').val();
+			var address = $('#address').val();
+		        if ((name !== "") && (checkGo !== "")) {
+		            $.ajax({
+                		url: "https://docs.google.com/forms/d/1dvXSKksQQ8Q1eXOtSpCQZQOIUfj1VIyVIgwJ6Xzi6Ss/formResponse",
+		                data: {"entry.766708135" : name, "entry.153034057" : tel, "entry.1191570565" : checkGo, "entry.1489926983" : peopNum, "entry.939758182" : zipcode, "entry.678315427" : address},
+		                type: "POST",
+                		dataType: "xml",
+		                statusCode: {
+                		    0: function (){
+ 
+		                        $('#name').val("");
+                		        $('#tel').val("");
+		                        $('#checkGo').val("Yes");
+					$('#peopNum').val("1");
+					$('#zipcode').val("");
+					$('#address').val("");
+					alert("感謝您的協助");
+                       			 //Success message
+                    			},
+		                    200: function (){
+                		        $('#name').val("");
+                 	 	        $('#tel').val("");
+		                        $('#checkGo').val("Yes");
+					$('#peopNum').val("1");
+					$('#zipcode').val("");
+					$('#address').val("");
+					alert("感謝您的協助");
+                 		       //Success Message
+                    			}
+		                }
+		            });
+	        }
+        	else{
+			alert("請確認姓名及是否出席是否已填寫");
+        	    //Error message
+	        }
+	    }
+	</script>
         </section>
+<!--
 	<aside id="sidebar">
 	<div id="form" class="contact-us-form">
 	    <div class="title">
@@ -167,6 +241,7 @@
 	    }
 	</script>
 	</aside>
+-->
       </div>
     </div>
 
