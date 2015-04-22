@@ -491,7 +491,7 @@ header h2 {
 
 #main-content {
   float: left;
-  width: 690px;
+  width: 100%;
 }
 
 #main-content img {
@@ -792,7 +792,7 @@ footer a:hover {
     font-size: 30px;
   }
   #main-content {
-    width: 490px;
+    width: 100%;
   }
   #main-content h1:before,
   #main-content h2:before,
